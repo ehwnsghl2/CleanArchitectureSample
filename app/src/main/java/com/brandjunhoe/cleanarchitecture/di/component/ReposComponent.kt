@@ -1,7 +1,7 @@
-package com.brandjunhoe.cleanarchitecture.di
+package com.brandjunhoe.cleanarchitecture.di.component
 
 import android.content.Context
-import com.brandjunhoe.cleanarchitecture.MovieApplication
+import com.brandjunhoe.cleanarchitecture.ReposApplication
 import com.brandjunhoe.cleanarchitecture.di.module.ActivityBindingModule
 import com.brandjunhoe.cleanarchitecture.di.module.NetWorkModule
 import dagger.BindsInstance
@@ -17,10 +17,10 @@ import javax.inject.Singleton
         ActivityBindingModule::class,
         NetWorkModule::class]
 )
-interface MovieComponent : AndroidInjector<MovieApplication> {
+interface ReposComponent : AndroidInjector<ReposApplication> {
 
     @Component.Factory
     interface Factory {
-        fun create(@BindsInstance applicationContext: Context): MovieComponent
+        fun create(@BindsInstance applicationContext: Context): ReposComponent
     }
 }

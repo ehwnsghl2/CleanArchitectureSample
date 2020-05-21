@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">CleanArchitecture</string>
-    <string name="base_url_movies_api">https://api.themoviedb.org/</string>
+
 </resources>

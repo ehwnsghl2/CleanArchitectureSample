@@ -3,7 +3,8 @@ package com.brandjunhoe.cleanarchitecture.di.module
 import android.content.Context
 import androidx.databinding.library.BuildConfig
 import com.brandjunhoe.cleanarchitecture.R
-import com.brandjunhoe.data.MovieService
+import com.brandjunhoe.cleanarchitecture.config.baseUrl
+import com.brandjunhoe.data.ApiService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -60,16 +61,16 @@ class NetWorkModule {
     @Singleton
     @Provides
     fun provideApiService(
-        context: Context,
         okHttpClient: OkHttpClient,
         gson: Gson
-    ): MovieService {
+    ): ApiService {
         return Retrofit.Builder()
-            .baseUrl(context.getString(R.string.base_url_movies_api))
+            .baseUrl(baseUrl)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
-            .create(MovieService::class.java)
+            .create(ApiService::class.java)
     }
+
 }
